@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Todo
 
 
 # Create your views here.
@@ -6,7 +7,9 @@ def blog(request):
     return render(request, 'blog.html')
 
 def home(request):
-    return render(request, 'home.html')
+    all = Todo.objects.all()
+    return render(request, 'home.html', {'todos': all})
 
 def say_hello(request):
-    return render(request, 'hello.html')
+    person = {'name': 'admin'}
+    return render(request, 'hello.html', context=person)
