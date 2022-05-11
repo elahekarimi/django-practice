@@ -39,7 +39,7 @@ def update(request, todo_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'the todo was updated', 'success')
-            return redirect('details', todo_id )
+            return redirect('details', todo_id)
 
     else:
         form = TodoUpdateForm(instance=todo)
